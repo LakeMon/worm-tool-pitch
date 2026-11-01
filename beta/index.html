@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c0d0b">
+  <meta name="description" content="Worm 工具阶段内部提案：把已有的 AI 角色对话，变成值得收藏与分享的漫画。">
+  <title>Worm — 把角色对话变成值得收藏的漫画</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Worm · 让已有故事，长出画面">
+  <meta property="og:description" content="把 AI 角色对话变成值得收藏的漫画。工具阶段内部提案与概念演示。">
+  <meta property="og:image" content="assets/last-train-comic.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/worm.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="detail-panels.css">
+</head>
+<body>
+  <a class="skip" href="#main">跳转到主要内容</a>
+  <header class="header">
+    <a href="#idea" class="brand" aria-label="Worm 首页"><img src="assets/worm.svg" alt="" width="42" height="28"><span>worm<span class="brand-dot">✳</span></span></a>
+    <div class="header-label">故事再生实验 <span>FIELD NOTES / 003</span></div>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav"><span>章节</span><span class="menu-lines" aria-hidden="true"></span></button>
+    <nav id="main-nav" aria-label="主要导航"><a href="#experience">制作台</a><a href="#story">成品体验</a><a href="#thesis">用户与定位</a><a href="#growth">增长</a><a href="#validation">验证计划</a><a href="worm-core-pitch.pdf" download class="nav-download">提案 PDF <span aria-hidden="true">↓</span></a></nav>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap" id="idea">
+      <div class="hero-topline"><span>NO STORY LEFT BEHIND.</span><span>独立漫画 Agent / 内部概念提案</span><span class="local-badge">● LOCAL EXPERIMENT</span></div>
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="status-dot"></span> 从已有的故事里，长出新的生命。</div>
+        <h1>故事不该，<br><em>停在对话框。</em></h1>
+        <p class="hero-position">把你和 AI 角色的故事，<br>做成值得收藏的漫画。</p>
+        <p class="hero-description">带来 <strong class="source-highlight">其他角色 App</strong> 中舍不得删掉的对话。<br>由漫画 Agent，把它变成可以重读的作品。</p>
+        <div class="hero-actions"><a href="#experience" class="button dark">进入故事制作台 <span aria-hidden="true">↗</span></a><a href="#story" class="text-link">先看漫画 <span>↓</span></a></div>
+        <div class="hero-note"><span aria-hidden="true">↳</span><p>关系已经存在。故事已经发生。<br>第一阶段，我们只负责把它变成一本漫画。</p></div>
+      </div>
+      <div class="specimen" id="specimen" data-phase="0">
+        <div class="specimen-cross cross-a" aria-hidden="true">＋</div><div class="specimen-cross cross-b" aria-hidden="true">＋</div>
+        <img class="beetle-art" src="assets/beetle-ritual.png" width="1254" height="1254" alt="暗黑屎壳郎推动带有灼橙裂纹的故事球，象征让已有故事获得新生命。" fetchpriority="high">
+        <div class="orbit-line" aria-hidden="true"></div>
+        <div class="specimen-coordinate">FIG. 001<br>THE STORY KEEPER</div>
+        <div class="specimen-caption"><span>SCARAB / 屎壳郎</span><p>收集。搬运。赋予新生。</p></div>
+        <div class="metamorph-book" aria-hidden="true"><img src="assets/last-train-comic.png" alt="" width="1024" height="1536"><span>最后一班车<br><small>A STORY, REBORN.</small></span></div>
+        <div class="specimen-tag" id="specimen-tag">“那就让它开吧。”</div>
+        <div class="ritual-control"><div><label for="story-morph">推动故事，让它蜕变</label><output id="morph-output" for="story-morph">01 / 原始对话</output></div><input id="story-morph" type="range" min="0" max="100" value="0" aria-label="故事蜕变进度" aria-valuetext="原始对话"><div class="morph-stops"><button data-morph="0" aria-pressed="true">对话</button><button data-morph="50" aria-pressed="false">理解</button><button data-morph="100" aria-pressed="false">成书</button></div></div>
+      </div>
+      <div class="hero-bottom"><span>KEEP THE FEELING.<br>CHANGE THE FORM.</span><span>01 — 把故事带进来</span><a href="#thesis" aria-label="向下阅读用户与定位">↓</a></div>
+    </section>
+
+    <div class="ticker" aria-label="产品输入输出"><div class="wrap"><span>已有角色</span><b>＋</b><span>真实投入</span><b>＋</b><span>难忘情节</span><b>＋</b><span class="ticker-tool">漫画Agent工具</span><b class="ticker-arrow">⟶</b><strong>一篇值得收藏的漫画</strong><span class="ticker-aside">从记忆，到漫画</span></div></div>
+
+
+
+
+    <section class="section wrap thesis-audience" id="thesis">
+      <div class="section-heading"><div class="eyebrow">01 / 用户与切入点</div><h2>用户带来关系与故事，<br>我们交付可感知的成品。</h2><p>Worm 改变的是<br>第一次购买的理由。</p></div>
+      <div class="thesis-grid">
+        <div class="old-path"><span class="small-label">独立互动产品的首次转化</span><h3>先爱上一个新角色</h3><div class="path-list"><span>发现新平台</span><i>↓</i><span>接受人设与世界</span><i>↓</i><span>投入时间建立关系</span><i>↓</i><span>理解体验并付费</span></div><p>需要同时建立内容兴趣、使用习惯和付费理由。</p></div>
+        <div class="new-path"><span class="small-label">WORM 的首次转化</span><h3>让已有故事值得收藏</h3><div class="big-equation"><span>你的名场面</span><b>↘</b><span class="equation-result">你的第一本漫画</span></div><p>人物已喜欢，情绪已发生，素材已存在。<br>一次交易，只验证<strong>“这段故事值得被画出来吗？”</strong></p><div class="hypothesis-tag">策略假设：购买动机更具体，转化仍需实测。</div></div>
+      </div>
+      <div class="case-archive" aria-label="用户故事档案">
+        <div class="archive-index"><span class="eyebrow">FIELD NOTES / 用户故事</span><h3>哪一段，<br>你舍不得删？</h3><div class="case-tabs" role="tablist" aria-label="关键使用场景" aria-orientation="vertical"><button id="case-tab-0" role="tab" aria-selected="true" aria-controls="case-panel" data-case="0"><span>01</span> 留住名场面 <b>↗</b></button><button id="case-tab-1" role="tab" aria-selected="false" aria-controls="case-panel" tabindex="-1" data-case="1"><span>02</span> 让朋友读懂 <b>↗</b></button><button id="case-tab-2" role="tab" aria-selected="false" aria-controls="case-panel" tabindex="-1" data-case="2"><span>03</span> 让原创角色出场 <b>↗</b></button></div></div>
+        <article class="case-display" id="case-panel" role="tabpanel" aria-labelledby="case-tab-0" tabindex="0"><span class="archive-number" id="case-number" aria-hidden="true">01</span><span class="small-label" id="case-type">THE MOMENT / 留住名场面</span><h3 id="case-title">“那次告别，<br>我还想再看一遍。”</h3><p id="case-description">一段持续很久的角色剧情，终于走到告白、重逢或告别。用户把那段对话交给 Worm，留下一篇属于这段关系的漫画。</p><div class="case-outcome" id="case-outcome">为已经发生的情感，留一份纪念。</div><span class="archive-stamp" aria-hidden="true">WORTH<br>KEEPING</span></article>
+      </div>
+      <details class="audience-inset disclosure" id="audience"><summary><span>首测找谁：有素材、有还原要求、愿意购买的人</span><span class="disclosure-action">查看筛选与招募 <b aria-hidden="true">＋</b></span></summary><div class="disclosure-body">
+      <div class="audience-heading"><h3>先找有“名场面”的人。</h3><p>按行为筛选，不按市场押注。首测不限国家或语言，分组记录、验证核心流程。</p></div>
+      <div class="audience-layout">
+        <div class="persona-tabs" role="tablist" aria-label="目标用户分层" aria-orientation="vertical">
+          <button class="persona-tab active" id="persona-tab-0" role="tab" aria-selected="true" aria-controls="persona-panel" data-persona="0"><span>优先切入</span><strong>双人剧情 RP 用户</strong><i>↗</i></button>
+          <button class="persona-tab" id="persona-tab-1" role="tab" aria-selected="false" aria-controls="persona-panel" tabindex="-1" data-persona="1"><span>按意愿分层</span><strong>私密关系收藏者</strong><i>↗</i></button>
+          <button class="persona-tab" id="persona-tab-2" role="tab" aria-selected="false" aria-controls="persona-panel" tabindex="-1" data-persona="2"><span>后续再做</span><strong>群像长篇 / 泛陪伴用户</strong><i>↗</i></button>
+        </div>
+        <div class="persona-panel" id="persona-panel" role="tabpanel" aria-labelledby="persona-tab-0" tabindex="0">
+          <span class="persona-index" id="persona-index">A / START HERE</span><h3 id="persona-title">“我想把我们那次告别画出来。”</h3><p id="persona-description">有原创角色或自设人物，长期进行双人剧情扮演，已经保存过对白或分享过名场面。</p><ul id="persona-points"><li>已有一个完整片段：告白、和解、重逢或冒险。</li><li>能提供两位角色的形象参考或具体描述。</li><li>愿意提交素材，并为确认后的成品付费。</li></ul><div class="persona-insight" id="persona-insight">优先筛选标准：有素材 + 有还原要求 + 有完成作品的意愿。分享意愿用于分层，不作为购买门槛。</div>
+        </div>
+      </div>
+      <div class="recruit-line"><span class="small-label">首批招募</span><p>角色创作者 / RP 社区 / 同好社群 → 展示一段“原文—成品” → 报出明确价格 → 收到真实素材</p><span class="note">不以点赞或问卷兴趣替代需求。</span></div>
+      </div></details>
+    </section>
+
+    <section class="section wrap" id="experience">
+      <div class="section-heading"><div class="eyebrow">02 / 最小交付闭环</div><h2>一段故事。两位主角。<br>交付一个完整故事。</h2><p>按照漫画书页数付费。<br>先确认人物与情节，再制作全篇。</p></div>
+      <div class="production-machine">
+      <div class="demo-shell">
+        <div class="demo-top"><span class="demo-badge"><i></i> STORY REACTOR / 故事制作台</span><span>虚构样例 · 不上传数据 · 不调用生成服务</span></div>
+        <div class="demo-steps" role="tablist" aria-label="MVP 演示步骤" aria-orientation="vertical"><div class="reactor-dial" aria-hidden="true"><span class="dial-cross">＋</span><strong id="reactor-number">01</strong><span class="dial-label">TRANSMUTATION</span><i></i></div>
+          <button role="tab" id="step-tab-0" aria-controls="demo-panel-0" aria-selected="true" class="step active" data-step="0"><b>01</b><span>带来对话<small>COLLECT</small></span><i>↗</i></button>
+          <button role="tab" id="step-tab-1" aria-controls="demo-panel-1" aria-selected="false" tabindex="-1" class="step" data-step="1"><b>02</b><span>确认故事<small>UNDERSTAND</small></span><i>↗</i></button>
+          <button role="tab" id="step-tab-2" aria-controls="demo-panel-2" aria-selected="false" tabindex="-1" class="step" data-step="2"><b>03</b><span>收到漫画<small>TRANSFORM</small></span><i>↗</i></button>
+          <button role="tab" id="step-tab-3" aria-controls="demo-panel-3" aria-selected="false" tabindex="-1" class="step" data-step="3"><b>04</b><span>选择分享<small>RELEASE</small></span><i>↗</i></button>
+        </div>
+        <div class="demo-panel" id="demo-panel-0" role="tabpanel" aria-labelledby="step-tab-0">
+          <div class="demo-copy"><span class="small-label">输入 / 一段已完成的情节</span><h3>从你舍不得删掉的<br>那一段开始。</h3><p>粘贴选中的对话，或上传 TXT。无需搬走全部聊天历史，也无需提供原平台账号。</p><div class="feature-pills"><span>建议 20–80 条消息</span><span>两位主要角色</span><span>一个完整场景</span></div><p class="micro-note">条数是首测建议范围；过长素材先人工协助截取，不承诺一键处理全部历史。</p><button class="button dark" data-next="1">看如何确认故事 <span>→</span></button></div>
+          <div class="chat-demo"><div class="mock-window"><i></i><i></i><i></i><span>last-train.txt</span></div><div class="chat-content"><p class="scene-setting">雨夜，站台。我们已经沉默了很久。</p><div class="message"><span>林</span><p>他递来那张被雨打湿的车票。<br>“末班车要开了。”</p></div><div class="message own"><span>我</span><p>我没有接。只是把车票推回他手里。<br>“那就让它开吧。”</p></div><div class="message"><span>林</span><p>远处响起汽笛。他终于笑了。<br>“这次，你确定？”</p></div><div class="message own"><span>我</span><p>“这次，我留下。”</p></div><p class="import-footer">✓ 原文保留在私密作品中</p></div></div>
+        </div>
+        <div class="demo-panel" id="demo-panel-1" role="tabpanel" aria-labelledby="step-tab-1" hidden>
+          <div class="demo-copy"><span class="small-label">确认 / 让用户保留解释权</span><h3>先确认“是我们”，<br>再开始画。</h3><p>展示简短提纲、双方形象和必须保留的台词。确认页数、制作范围与价格后付款，再制作完整正文。</p><div class="feature-pills"><span>一种画风</span><span>两位主角</span><span>锁定关键台词</span></div><p class="micro-note">首批由人工辅助审核。人物预览的成本计入试用成本；不做无限免费重抽。</p><button class="button dark" data-next="2">看交付结果 <span>→</span></button></div>
+          <div class="outline-demo"><div class="outline-heading"><span>STORY CHECK</span><b>最后一班车</b></div><div class="cast"><div><span class="avatar avatar-a">林</span><p><strong>林 · 成年</strong><small>黑发 / 深色大衣 / 克制</small></p></div><div><span class="avatar avatar-b">我</span><p><strong>主角 · 成年</strong><small>栗色短发 / 蓝色围巾</small></p></div></div><ol class="story-beats"><li><span>01</span>雨夜重逢，离别近在眼前。</li><li><span>02</span>他递出车票，等待一个答案。</li><li><span>03</span>我推回车票，选择留下。</li><li><span>04</span>列车离开，两人重新靠近。</li></ol><blockquote>必须保留：<br>“那就让它开吧。”</blockquote><div class="outline-check">✓ 不新增关系设定，不替用户改变结局。</div></div>
+        </div>
+        <div class="demo-panel" id="demo-panel-2" role="tabpanel" aria-labelledby="step-tab-2" hidden>
+          <div class="demo-copy"><span class="small-label">交付 / 一个可以买走的成品</span><h3>读得到，存得下。<br>也可以，只留给自己。</h3><p>私密阅读页 + PDF / 长图下载。提供一轮约定范围内的修正；生成失败不重复计费。</p><div class="feature-pills"><span>按确认页数制作</span><span>漫画正文 + 封面</span><span>一轮明确范围修正</span></div><p class="micro-note">这里展示一页 AI 创作样例。完整产品尚未开发，交付时效先通过人工批次实测。</p><button class="button dark" data-next="3">看分享方式 <span>→</span></button></div>
+          <div class="result-demo"><figure><div class="lettered-comic"><img src="assets/last-train-comic.png" alt="四格概念漫画：雨夜站台，林递出车票，主角推回车票，决定留下。" width="1024" height="1536" loading="lazy"><span class="comic-narration">雨夜，末班车前。</span><span class="speech speech-one">末班车要开了。</span><span class="speech speech-two">那就让它开吧。</span><span class="speech speech-three">这次，你确定？</span><span class="speech speech-four">这次，我留下。</span></div><figcaption><b>最后一班车</b><button class="text-link" data-open-reader>放大阅读 ↗</button></figcaption></figure></div>
+        </div>
+        <div class="demo-panel" id="demo-panel-3" role="tabpanel" aria-labelledby="step-tab-3" hidden>
+          <div class="demo-copy"><span class="small-label">分享 / 用户决定可见范围</span><h3>分享一个名场面，<br>不用交出整段关系。</h3><p>用户主动选择一张封面或 2–4 格摘录，确认昵称、台词和画面后生成链接。原始聊天记录始终不随作品公开。</p><label class="privacy-toggle"><input type="checkbox" id="share-consent"><span class="toggle-track"></span><span>演示：允许展示已选漫画摘录</span></label><div class="privacy-state" id="privacy-state" aria-live="polite">当前：私密收藏。分享页尚未开放。</div><p class="micro-note">此开关只改变演示预览，不会发布任何内容。</p></div>
+          <div class="share-demo private" id="share-demo"><div class="share-top"><span>worm.</span><span id="share-badge">PRIVATE</span></div><div class="share-image"><img src="assets/last-train-comic.png" alt="漫画分享卡示意" width="1024" height="1536" loading="lazy"><span id="share-lock">仅自己可见</span></div><div class="share-caption"><span>一个把车票退回去的夜晚。</span><h4>最后一班车</h4><p>你的聊天记录里，也有这样的瞬间吗？</p><button class="button dark" id="share-demo-cta" disabled>把我的故事做成漫画 ↗</button><small>示意 CTA · 点击返回导入流程演示</small></div></div>
+        </div>
+      </div>
+      </div>
+      <div class="promise-row"><div><b>01</b><strong>先忠实，再好看</strong><p>关键台词、角色关系与结局不擅自改写。</p></div><div><b>02</b><strong>固定规格，控制返工</strong><p>一个片段、两位主角、一种画风、明确修正范围。</p></div><div><b>03</b><strong>默认私密，自愿公开</strong><p>收藏价值与传播价值分别成立，分享不是交付条件。</p></div></div>
+    </section>
+
+<section class="section growth-section" id="growth"><div class="wrap">
+      <div class="section-heading"><div class="eyebrow">03 / 作品带来下一位创作者</div><h2>让作品带来创作者。<br><em>分享，是一条要验证的渠道。</em></h2><p>收藏是用户价值，传播是可选动作。<br>不把“可以分享”当成“会自动裂变”。</p></div>
+      <div class="growth-story"><span class="small-label">04 / 被别人的作品触发</span><blockquote>“看完她的漫画，我想起了我们那次重逢。”</blockquote><p>用户在同好社群读到一段漫画，想起自己也有值得画出来的故事，沿着作品入口来到 Worm。</p><span class="caption-2">这是待验证的获客路径。购买不以分享为条件。</span></div>
+      <div class="growth-path"><div><span>01</span><h3>满意成品</h3><p>先交付值得保存的漫画</p></div><b>→</b><div><span>02</span><h3>自选摘录</h3><p>脱敏后分享精彩片段</p></div><b>→</b><div><span>03</span><h3>无门槛阅读</h3><p>访客无需登录看摘录</p></div><b>→</b><div><span>04</span><h3>“做我的故事”</h3><p>提交自己的角色对话</p></div><b>→</b><div><span>05</span><h3>新的付费作品</h3><p>完成交付后再次进入循环</p></div></div>
+      <details class="disclosure growth-details"><summary><span>分享能带来多少新客户？</span><span class="disclosure-action">调整传播假设 <b aria-hidden="true">＋</b></span></summary><p class="model-context">默认演算：25% 分享率 × 20 位新访客 × 8% 有效提交 × 25% 付费 = 0.10 位新客户。这组假设尚不足以自我维持增长。</p><div class="growth-lab"><div class="lab-copy"><span class="small-label">传播模型 / 可调整假设</span><h3>一个付费创作者，<br>带来多少个新客户？</h3><p>记录交付后 14 天内带来的去重新访客；<br>再跟踪每位访客首次进入后 14 天的首购。</p><div class="formula">K<sub>paid</sub> = s × v × u × p</div><div class="growth-result"><output id="growth-k">0.10</output><p>位新增付费创作者 / 原付费创作者</p></div><p class="lab-verdict" id="growth-verdict">在这组假设下，它是一条补充获客渠道，尚不能自我维持增长。</p></div><div class="sliders">
+        <label for="share-rate"><span>主动分享率 <small>s</small></span><output id="share-rate-value">25%</output><input id="share-rate" type="range" min="0" max="100" step="1" value="25"></label>
+        <label for="share-visitors"><span>每位分享者带来新访客 <small>v</small></span><output id="share-visitors-value">20 人</output><input id="share-visitors" type="range" min="0" max="200" step="5" value="20"></label>
+        <label for="submit-rate"><span>访客 → 有效素材提交 <small>u</small></span><output id="submit-rate-value">8%</output><input id="submit-rate" type="range" min="0" max="50" step="1" value="8"></label>
+        <label for="pay-rate"><span>有效提交 → 付费 <small>p</small></span><output id="pay-rate-value">25%</output><input id="pay-rate" type="range" min="0" max="100" step="1" value="25"></label>
+        <div class="lab-note">四个乘数使用同一队列，最长 28 天成熟；排除本人、既有客户与重复归因。以上均为演算假设。K ≥ 1 仍受周期、受众重叠、成本与渠道饱和影响。</div>
+      </div></div>
+      </details>
+      <div class="growth-bottom"><div><span class="small-label">先做作品传播</span><p>长图附轻量出处 + 独立摘录页 + 明确 CTA。分享者可下载脱敏图片，在自己的社群或社媒发布。</p></div><div><span class="small-label">奖励机制后置</span><p>先观察自然分享。若测试推荐奖励，只在被推荐人完成真实付费且过退款窗口后发放，奖励成本计入获客成本。</p></div><div><span class="small-label">判断真实结果</span><p>归因到具体作品，看到“访客 → 有效提交 → 付费”。点赞、转发和曝光不是最终转化。</p></div></div>
+    </div></section>
+
+<section class="section economics-section" id="economics"><div class="wrap">
+      <div class="section-heading"><div class="eyebrow">04 / 一笔交易的可行性</div><h2>第一天可以收费。<br>每一单，都要算清楚。</h2><p>按照漫画书页数付费，先用两档真实报价测试。<br>不以未来订阅或平台价值补贴当前亏损。</p></div>
+      <div class="economics-brief"><p class="small-label">先验证三个条件</p><div><strong>有人愿意买</strong><span>明确报价后，收到真实付款。</span></div><div><strong>作品交得出</strong><span>在约定范围内完成修正与交付。</span></div><div><strong>每单算得过来</strong><span>计入生成、人工、退款与获客成本。</span></div></div>
+      <details class="disclosure economics-details"><summary><span>首单成本与贡献测算</span><span class="disclosure-action">查看假设与计算器 <b aria-hidden="true">＋</b></span></summary><p class="model-context">内部演算假设，不是实际定价或利润。默认每篇实收 ¥49，扣除制作等成本与获客后，首单贡献 ¥12.05；固定费用尚未计入。</p><div class="economics-grid"><div class="economics-inputs"><span class="small-label">内部敏感性测算 · 非定价承诺</span><div class="number-grid">
+        <label>每篇实收（元）<input type="number" id="price" min="0" max="10000" value="49" step="1"></label><label>基础生成成本（元）<input type="number" id="generation" min="0" max="10000" value="6" step="0.5"></label><label>返工成本增幅（%）<input type="number" id="retry" min="0" max="1000" value="25" step="5"></label><label>人工处理（分钟）<input type="number" id="minutes" min="0" max="1000" value="8" step="1"></label><label>人工时薪（元）<input type="number" id="hourly" min="0" max="10000" value="60" step="5"></label><label>支付等变动费率（%）<input type="number" id="fee" min="0" max="100" value="5" step="0.5"></label><label>试用 / 退款等摊销（元）<input type="number" id="overhead" min="0" max="10000" value="4" step="1"></label><label>每位付费用户获客成本（元）<input type="number" id="cac" min="0" max="10000" value="15" step="1"></label>
+      </div><p class="micro-note">“元”仅作内部统一测算单位，不代表首发市场。实收与退款摊销应避免重复扣除；固定费用未计入。两档报价分组记录，复购使用该组预先公布的无补贴价格；小样本不用于判断最优定价。</p></div><div class="economics-output"><div class="cost-bars"><div><span>订单实收</span><strong id="revenue-value">¥49.00</strong></div><div><span>制作 + 人工 + 摊销</span><strong id="cost-value">− ¥21.95</strong></div><div><span>获客成本</span><strong id="cac-value">− ¥15.00</strong></div></div><div class="margin-label">首单贡献 / 扣除获客后</div><output id="margin-value">¥12.05</output><p id="margin-verdict">在这组假设下首单贡献为正；尚不等于整体盈利。</p><div class="cac-ceiling">首单可承受 CAC 上限 <b id="cac-ceiling">¥27.05</b><small>按首单贡献不亏计算；不计固定费用与未来复购。</small></div></div></div>
+    </details></div></section>
+
+    <section class="section wrap" id="validation">
+      <div class="section-heading"><div class="eyebrow">05 / 用 30 天获得证据</div><h2>先证明，有人愿意<br>带着下一段故事回来。</h2><p>这是建议实验计划，不是已经发生的结果。<br>时间从启动验证起算。</p></div>
+      <div class="timeline"><article><span class="week">WEEK 01</span><h3>拿到真实素材</h3><p>招募不同语言与来源平台的目标用户；走通导入、外观与提纲确认。</p><strong>观察：输入完成率与阻塞原因</strong></article><article><span class="week">WEEK 02</span><h3>交付付费成品</h3><p>清晰报价后成交；固定规格交付，记录生成、人工、修正与退款成本。</p><strong>观察：接受度与单笔贡献</strong></article><article><span class="week">WEEK 03</span><h3>复购与自愿分享</h3><p>向成熟首购队列提供第二篇；开放自选摘录，追踪新客户提交与付费。</p><strong>观察：新鲜感之后的需求</strong></article><article><span class="week">WEEK 04</span><h3>修一次，再决策</h3><p>针对最主要的失败点迭代；按同一规格、价格与口径复测。</p><strong>观察：问题能否被重复解决</strong></article></div>
+
+    </section>
+
+    <section class="section wrap questions" aria-labelledby="questions-heading"><div class="questions-heading"><div class="eyebrow">提案边界</div><h2 id="questions-heading">先把几个问题<br>说清楚。</h2><p>目标体验与待验证的假设，分开看。</p></div><div class="question-list">
+      <article><h3>这是一个新的 AI 角色聊天平台吗？</h3><p>第一阶段只做漫画成品工具。用户带来已有对话，不需要在 Worm 重新建立角色关系。</p></article>
+      <article><h3>为什么用户不直接用原平台的漫画功能？</h3><p>c.ai 已有 Comics。跨平台、人物还原、情节忠实与成书体验，是 Worm 需要证明的价值，当前还不是已验证优势。</p></article>
+      <article><h3>能直接导入半年聊天记录吗？</h3><p>第一版从两位角色的一个完整片段开始。优先粘贴或 TXT；长历史先辅助截取，不承诺全量自动改编。</p></article>
+      <article><h3>用户必须公开自己的故事吗？</h3><p>目标方案是默认私密、自选摘录。收藏与分享分开验证，原始对话不随作品公开。</p></article>
+      <article><h3>页面上的漫画和数字是真实结果吗？</h3><p>漫画是虚构概念样例；价格、增长与成本是可调整假设。本页没有接入上传、AI 生成或付款。</p></article>
+      <article><h3>这次内部讨论要决定什么？</h3><p>是否启动小规模付费验证，确认首批招募、交付责任与预算；以真实付款、接受度、复购和单笔成本决定下一步。</p></article>
+    </div></section>
+    <section class="closing"><div class="wrap"><div class="eyebrow">让已有的故事，成为新的作品。</div><h2 class="tagline"><span>用户带来</span><span>关系与故事，</span><br><span>我们交付</span><span>可感知的成品。</span></h2><div class="closing-bottom"><p>本次决策：是否启动小规模付费验证？<br><strong>先证明，有人愿意带着下一段故事回来。</strong></p><div class="closing-actions"><a href="#story" class="button dark">看对话如何变成漫画 <span aria-hidden="true">↗</span></a><a href="worm-core-pitch.pdf" download class="text-link">下载核心提案 PDF ↓</a></div></div></div></section>
+
+    <section class="section wrap story-section" id="story" aria-labelledby="story-heading">
+      <div class="section-heading"><div class="eyebrow">A scene, made yours / 成品体验</div><h2 id="story-heading">同一句对白。<br>终于，有了画面。</h2><p>想留下的，是那句台词背后的关系。<br>用一个片段，看看 Worm 想交付的体验。</p></div>
+      <div class="story-comparison">
+        <div class="source-story"><div class="source-heading"><span class="small-label">原文节选</span><span class="caption-3">01 / 雨夜站台</span></div><p class="trace-hint">点击一句对白，找到它在漫画中的位置。</p><p class="source-setting">雨夜，站台。我们已经沉默了很久。</p>
+          <div class="source-line"><span>林</span><p>他递来那张被雨打湿的车票。<br><button class="trace-quote" data-trace="0" aria-pressed="false" aria-controls="story-comic">“末班车要开了。” <span aria-hidden="true">↗</span></button></p></div>
+          <div class="source-line own"><span>我</span><p>我没有接。只是把车票推回他手里。<br><button class="trace-quote" data-trace="1" aria-pressed="false" aria-controls="story-comic">“那就让它开吧。” <span aria-hidden="true">↗</span></button></p></div>
+          <div class="source-line"><span>林</span><p>远处响起汽笛。他终于笑了。<br><button class="trace-quote" data-trace="2" aria-pressed="false" aria-controls="story-comic">“这次，你确定？” <span aria-hidden="true">↗</span></button></p></div>
+          <div class="source-line own"><span>我</span><p><button class="trace-quote" data-trace="3" aria-pressed="false" aria-controls="story-comic">“这次，我留下。” <span aria-hidden="true">↗</span></button></p></div>
+          <div class="source-takeaway"><span aria-hidden="true">↳</span><p>保留关键台词、人物关系与结局。<br><strong>把你记得的那一刻，画出来。</strong></p></div>
+        </div>
+        <figure class="story-page" id="story-comic"><div class="storybook-head"><span>最后一班车</span><span id="trace-status" aria-live="polite">概念样例 · 01</span></div><div class="lettered-comic"><img src="assets/last-train-comic.png" alt="四格概念漫画：雨夜站台，林递出车票，主角推回车票，决定留下。" width="1024" height="1536" loading="lazy"><span class="comic-narration">雨夜，末班车前。</span><span class="speech speech-one">末班车要开了。</span><span class="speech speech-two">那就让它开吧。</span><span class="speech speech-three">这次，你确定？</span><span class="speech speech-four">这次，我留下。</span></div><figcaption><span>一页四格示意 · 非实际生成结果</span><button class="text-link" data-open-reader>放大阅读 <span aria-hidden="true">↗</span></button></figcaption></figure>
+      </div>
+      <div class="artifact-caption"><span>END OF FIELD NOTES</span><span>THE STORY CONTINUES ↗</span></div><p class="sample-note">虚构成年角色 · AI 图像与网页对白排版 · 用于说明目标体验，尚未接入生成服务。</p>
+    </section>
+  </main>
+  <footer class="footer wrap"><div><a href="#idea" class="brand"><img src="assets/worm.svg" alt="" width="42" height="28"><span>worm.</span></a><p>内部讨论稿 · 2026.11.01<br>本地设计实验 v0.3 · 工具 MVP</p></div><div class="sources"><span class="small-label">事实来源与边界</span><a href="https://blog.character.ai/cai-comics/" target="_blank" rel="noopener noreferrer">c.ai Comics 官方介绍 · 2026.09.02 ↗</a><a href="https://support.character.ai/hc/en-us/articles/54400390862875-Creating-Comics" target="_blank" rel="noopener noreferrer">c.ai Comics 创作流程 ↗</a><a href="https://support.character.ai/hc/en-us/articles/30299431702555-How-do-I-export-all-my-data-How-can-I-export-my-chats" target="_blank" rel="noopener noreferrer">c.ai 数据导出说明 ↗</a><a href="https://plotta.ai/index.html" target="_blank" rel="noopener noreferrer">Plotta 官方产品介绍 ↗</a><p>功能描述来自公开资料；用户分层、规格、阈值及测算均为本提案的待验证建议。未读取 Plotta 本地代码或业务数据。</p></div></footer>
+  <dialog class="reader" aria-labelledby="reader-title"><div class="reader-toolbar"><div><h2 id="reader-title">最后一班车</h2><p>概念样例 · 一页四格 · 非产品实测</p></div><button class="reader-close" autofocus aria-label="关闭漫画阅读">关闭 <span aria-hidden="true">×</span></button></div><div class="reader-page"><div class="lettered-comic"><img src="assets/last-train-comic.png" alt="四格概念漫画：雨夜站台，林递出车票，主角推回车票，决定留下。" width="1024" height="1536" loading="lazy"><span class="comic-narration">雨夜，末班车前。</span><span class="speech speech-one">末班车要开了。</span><span class="speech speech-two">那就让它开吧。</span><span class="speech speech-three">这次，你确定？</span><span class="speech speech-four">这次，我留下。</span></div></div><p class="reader-note">对白以网页文字排版，原始 AI 图像未作修改。</p></dialog>
+  <div class="reading-progress" aria-hidden="true"><span id="progress-bar"></span></div>
+  <script src="app.js"></script>
+  <script src="ritual.js"></script>
+</body>
+</html>

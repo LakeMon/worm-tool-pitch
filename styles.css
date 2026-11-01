@@ -64,3 +64,9 @@ body{font:var(--body-3)}h1,h2,h3,h4{text-wrap:balance;font-weight:600}p{text-wra
 
 /* Emphasize the source of users’ existing stories. */
 .hero-description .source-highlight{font-weight:700;color:var(--ink);background:var(--green);padding:2px 4px;border-radius:2px;white-space:nowrap;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+
+/* Entry to the independent Scarab beta theme. */
+.header>.beta-link{display:inline-flex;align-items:center;justify-content:center;gap:8px;flex:none;margin-left:auto;min-height:40px;padding:8px 14px;border:1px solid #262a20;border-radius:5px;background:#22291d;color:#e1f58a;font-size:13px;font-weight:650;line-height:1.4;transition:background 160ms}
+.header>.beta-link:hover{background:#3a4630}
+.header>.beta-link+button+nav{margin-left:0}
+@media(max-width:700px){.header>.header-label{display:none}.header>.beta-link{min-height:40px;padding:8px 12px}}
