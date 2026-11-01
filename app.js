@@ -82,8 +82,74 @@
     $('margin-verdict').textContent = contribution > 0 ? '在这组假设下首单贡献为正；尚不等于整体盈利。' : contribution === 0 ? '在这组假设下首单贡献持平，尚未覆盖固定研发与管理费用。' : '在这组假设下首单贡献为负，需要调整价格、制作成本或获客方式。';
   }
   costIds.forEach(id => { $(id).addEventListener('input', updateEconomics); $(id).addEventListener('change', () => { $(id).value = readNumber(id); updateEconomics(); }); });
-  function updateProgress() { const max = document.documentElement.scrollHeight - innerHeight; $('progress-bar').style.width = `${max > 0 ? Math.min(100, Math.max(0, scrollY / max * 100)) : 0}%`; }
-  window.addEventListener('scroll', updateProgress, { passive:true });
-  window.addEventListener('resize', updateProgress);
+  // Navigation uses the same anchors on desktop and mobile.
+  const menu = document.querySelector('.menu-toggle');
+  const navigation = $('main-nav');
+  function closeMenu() { menu.setAttribute('aria-expanded', 'false'); navigation.classList.remove('is-open'); }
+  menu.addEventListener('click', () => {
+    const open = menu.getAttribute('aria-expanded') !== 'true';
+    menu.setAttribute('aria-expanded', String(open));
+    navigation.classList.toggle('is-open', open);
+  });
+  navigation.addEventListener('click', event => { if (event.target.closest('a')) closeMenu(); });
+  document.addEventListener('click', event => { if (!event.target.closest('.header')) closeMenu(); });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && menu.getAttribute('aria-expanded') === 'true') { closeMenu(); menu.focus(); }
+  });
+  const personaHorizontal = matchMedia('(min-width: 541px) and (max-width: 800px)');
+  function updatePersonaOrientation() { document.querySelector('.persona-tabs').setAttribute('aria-orientation', personaHorizontal.matches ? 'horizontal' : 'vertical'); }
+  personaHorizontal.addEventListener('change', updatePersonaOrientation);
+  updatePersonaOrientation();
+  const mobileQuery = matchMedia('(max-width: 540px)');
+  mobileQuery.addEventListener('change', closeMenu);
+  const navLinks = [...navigation.querySelectorAll('a[href^="#"]')];
+  const activeChapters = new Set();
+  const chapterObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => entry.isIntersecting ? activeChapters.add(entry.target.id) : activeChapters.delete(entry.target.id));
+    const current = navLinks.find(link => activeChapters.has(link.hash.slice(1)));
+    navLinks.forEach(link => current === link ? link.setAttribute('aria-current', 'location') : link.removeAttribute('aria-current'));
+  }, { rootMargin: '-15% 0px -55% 0px' });
+  navLinks.forEach(link => { const target = document.querySelector(link.hash); if (target) chapterObserver.observe(target); });
+
+  // Native dialog provides focus containment, Escape and return to the opener.
+  const reader = document.querySelector('.reader');
+  document.querySelectorAll('[data-open-reader]').forEach(button => button.addEventListener('click', () => { reader.showModal(); reader.scrollTop = 0; }));
+  document.querySelector('.reader-close').addEventListener('click', () => reader.close());
+  reader.addEventListener('click', event => {
+    const bounds = reader.getBoundingClientRect();
+    if (event.target === reader && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) reader.close();
+  });
+
+  // Reveal the closing thought by Chinese phrase; never hide content without JS.
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  const tagline = document.querySelector('.tagline');
+  let taglineTimer;
+  const taglineObserver = new IntersectionObserver(entries => {
+    if (entries.some(entry => entry.isIntersecting)) {
+      const parts = [...tagline.querySelectorAll('span')];
+      let index = 0;
+      const revealNext = () => {
+        if (index >= parts.length) return;
+        parts[index++].classList.add('is-visible');
+        taglineTimer = setTimeout(revealNext, 180);
+      };
+      revealNext(); taglineObserver.disconnect();
+    }
+  }, { threshold: .6 });
+  if (!reducedMotion.matches) { tagline.classList.add('is-observed'); taglineObserver.observe(tagline); }
+  reducedMotion.addEventListener('change', event => {
+    if (event.matches) { clearTimeout(taglineTimer); taglineObserver.disconnect(); tagline.classList.remove('is-observed'); }
+  });
+
+  let progressFrame = 0;
+  function updateProgress() {
+    progressFrame = 0;
+    const max = document.documentElement.scrollHeight - innerHeight;
+    $('progress-bar').style.transform = `scaleX(${max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 0})`;
+  }
+  function queueProgress() { if (!progressFrame) progressFrame = requestAnimationFrame(updateProgress); }
+  window.addEventListener('scroll', queueProgress, { passive:true });
+  window.addEventListener('resize', queueProgress);
+  document.querySelectorAll('details').forEach(detail => detail.addEventListener('toggle', queueProgress));
   updateGrowth(); updateEconomics(); updateProgress();
 })();
