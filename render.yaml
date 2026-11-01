@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: worm-tool-pitch
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: ./
+    autoDeploy: true
